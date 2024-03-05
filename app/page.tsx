@@ -21,6 +21,7 @@ export default function Page() {
     return () => {
       userListener.unsubscribe()
       console.log('test');
+      console.log('test2');
     }
 
   }, [])
