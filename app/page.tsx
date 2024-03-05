@@ -20,6 +20,7 @@ export default function Page() {
     getData()
     return () => {
       userListener.unsubscribe()
+      console.log('test');
     }
 
   }, [])
