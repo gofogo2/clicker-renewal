@@ -11,7 +11,7 @@ export default function Page() {
       .channel('public:notes')
       .on('postgres_changes', { event: '*', schema: 'public', table: 'notes' }, (payload) =>
         handleAllEventsPayload(payload)
-      )
+      ) 
       .subscribe()
     const getData = async () => {
       const { data } = await supabase.from('notes').select()
