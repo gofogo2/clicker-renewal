@@ -26,6 +26,16 @@ export default function Page() {
     }
 
   }, [])
+
+function changeValue(){
+  const userListener = supabase
+  .channel('public:notes')
+  .on('postgres_changes', { event: '*', schema: 'public', table: 'notes' }, (payload) =>
+    handleAllEventsPayload(payload)
+  ) 
+
+}
+
   function handleAllEventsPayload(payload: any): void {
     // INSERT 이벤트에 대한 처리
     if (payload.eventType === 'INSERT') {
